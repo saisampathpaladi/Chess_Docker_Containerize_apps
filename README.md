@@ -26,28 +26,21 @@ CMD ["nginx", "-g", "daemon off;"]
 
 ### Use SSH to connect to your EC2 instance:
 ```bash
-Copy code
 ssh -i your-key.pem ec2-user@ec2-instance-public-ip
-Install Docker:
 ```
 ### Update the package index and install Docker:
 ```bash
-Copy code
 sudo apt update
 sudo apt install docker.io -y
-Copy Dockerfile and Web App:
 ```
 - Copy your Dockerfile and web app files to the EC2 instance using SCP or any other method.
 ### Build Docker Image:
 - Navigate to the directory containing your Dockerfile and build the Docker image:
 ```bash
-Copy code
 docker build -t my-web-app .
-Run Docker Container:
 ```
 - Run the Docker container based on the image you just built:
 ```bash
-Copy code
 docker run -d -p 80:80 my-web-app
 ```
 ### Access the Web App:
@@ -57,7 +50,6 @@ docker run -d -p 80:80 my-web-app
 ### Optional: Production Setup:
 ### Install Docker Compose:
 ```bash
-Copy code
 sudo apt install docker-compose -y
 ```
 1. Building and Running Containers with Docker Compose:
@@ -75,7 +67,6 @@ services:
 ### Cleanup:
 - To stop and remove the Docker container when not in use:
 ```bash
-Copy code
 docker stop container-id
 docker rm container-id
 ```
